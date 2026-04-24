@@ -43,6 +43,13 @@ Once deployed, you can access your 9Router dashboard at the domain you configure
 
 ---
 
-### Important Notes
-- **Port**: The application runs on port `20128` inside the container.
-- **Storage**: All data is stored in `/app/data` inside the container, which is mapped to a persistent volume.
+### Troubleshooting: Submodule Clone Failure
+If your deployment fails with a `fatal: could not read Username for 'https://github.com'` error during the clone stage, it is likely due to the private `src/mitm/dev` submodule.
+
+**Solution:**
+1. Go to your Service settings in Coolify.
+2. In the **General** settings, find the **Install Submodules** toggle.
+3. Turn it **OFF**.
+4. Redeploy.
+
+The `src/mitm/dev` directory is optional and used for local development overrides; it is not required for the production application to function.
