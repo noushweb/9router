@@ -44,12 +44,4 @@ Once deployed, you can access your 9Router dashboard at the domain you configure
 ---
 
 ### Troubleshooting: Submodule Clone Failure
-If your deployment fails with a `fatal: could not read Username for 'https://github.com'` error during the clone stage, it is likely due to the private `src/mitm/dev` submodule.
-
-**Solution:**
-1. Go to your Service settings in Coolify.
-2. In the **General** settings, find the **Install Submodules** toggle.
-3. Turn it **OFF**.
-4. Redeploy.
-
-The `src/mitm/dev` directory is optional and used for local development overrides; it is not required for the production application to function.
+I have removed the `.gitmodules` file and the `src/mitm/dev` submodule reference from the repository to prevent this error. The application is now "submodule-free" and should clone successfully in Coolify.
