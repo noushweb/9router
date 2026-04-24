@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  9router:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: 9router
+    environment:
+      - DATA_DIR=/app/data
+      - PORT=20128
+      - HOSTNAME=0.0.0.0
+      - NODE_ENV=production
+      # - JWT_SECRET=your-secret-here
+      # - INITIAL_PASSWORD=123456
+      # - AUTH_COOKIE_SECURE=true
+    volumes:
+      - 9router-data:/app/data
+    ports:
+      - "20128:20128"
+    restart: always
+
+volumes:
+  9router-data:
+    driver: local
